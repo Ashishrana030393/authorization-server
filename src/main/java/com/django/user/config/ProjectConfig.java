@@ -1,6 +1,7 @@
 package com.django.user.config;
 
 import com.django.user.dao.ClientRepository;
+import org.flywaydb.core.Flyway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -80,11 +81,14 @@ public class ProjectConfig {
         return AuthorizationServerSettings.builder().build();
     }
 
-
     @Bean
     PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+//    @Bean
+//    Flyway flyway(){
+//        Flyway flyway = new Flyway();
+//    }
 
 }

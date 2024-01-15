@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://127.0.0.1:3306/userdb?autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+flyway:
+  baselineOnMigrate: true   # flyway will automatically create baseline for database when you run migration
+  location: classpath:db/migration
+
