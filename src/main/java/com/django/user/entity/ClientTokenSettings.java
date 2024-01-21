@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
 
 @Entity
 @Table(name="client_token_settings")
@@ -13,6 +14,14 @@ public class ClientTokenSettings  extends BaseId{
     @OneToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+    public ClientTokenSettings() {
+    }
+
+    public ClientTokenSettings(int ttl, String type) {
+        this.ttl = ttl;
+        this.type = type;
+    }
 
     public int getTtl() {
         return ttl;

@@ -8,11 +8,17 @@ spring:
       connection-timeout: 5000
       maximum-pool-size: 5
   jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
 
 
 flyway:
+  user: ${spring.datasource.username}
+  password: ${spring.datasource.password}
+  url: ${spring.datasource.url}
   baselineOnMigrate: true   # flyway will automatically create baseline for database when you run migration
-  location: classpath:db/migration
+  #location: classpath:db/migration
 

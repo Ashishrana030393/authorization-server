@@ -20,13 +20,13 @@ CREATE TABLE users_roles (
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
+
+
 -- create table for ClientTokenSettings
 CREATE TABLE client_token_settings (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     ttl INT NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    client_id BIGINT,
-    FOREIGN KEY (client_id) REFERENCES clients(id)
+    type VARCHAR(255) NOT NULL
 );
 
 -- create table for Client
@@ -42,6 +42,11 @@ CREATE TABLE clients (
     redirect_uris VARCHAR(255),
     post_logout_redirect_uris VARCHAR(255),
     scopes VARCHAR(255),
-    token_settings_id BIGINT,
-    FOREIGN KEY (token_settings_id) REFERENCES client_token_settings(id)
+    token_settings_id BIGINT
 );
+
+ALTER TABLE clients
+ADD CONSTRAINT fk_clients_token_settings
+FOREIGN KEY (token_settings_id) REFERENCES client_token_settings(id);
+
+
