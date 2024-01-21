@@ -29,3 +29,6 @@ flyway:
   baselineOnMigrate: true   # flyway will automatically create baseline for database when you run migration
   #location: classpath:db/migration
 
+server:
+  port: 8081
+
