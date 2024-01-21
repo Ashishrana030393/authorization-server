@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: authorization-server
   datasource:
     username: root
     password: password

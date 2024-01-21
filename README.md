@@ -38,4 +38,9 @@ introspection endpoint | http://<auth-server-host>:<auth-server-port>/oauth2/int
 **oauth2 debugger**
 
 
+**Eureka client** 
+* authorization server will try to fetch registry from eureka server and cache it, fetch-registry is true by default
+* authorization server will register itself with eureka server, register-with-eureka is true by default
+
+
 
